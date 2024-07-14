@@ -1,7 +1,7 @@
 NAME	= fractol
 CC	= cc
 CFLAGS	= -Wall -Wextra -Werror
-SRC	= main.c \
+SRC	= main.c fractol.h render.c init.c math_utils.c fractol_utils.c
 
 OBJ	= $(SRC:.c=.o)
 
