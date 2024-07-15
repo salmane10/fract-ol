@@ -10,9 +10,11 @@ int	main(int ac, char **av)
 	t_fractal fractal;
 
 	if ((ac == 2 && av[1] == "mandelbrot")
-		|| ac == 4 && av[1] == julia)
+		|| ac == 4 && av[1] == "julia")
 	{
-		fractal.name = av[1];
+		fractal.name 	= av[1];
+		fractal.julia_x	= atodbl(av[2]);
+		fractal.julia_y = atodbl(av[3]);
 		//Start
 		fractal_init(&fractal);
 		fractal_render(&fractal);

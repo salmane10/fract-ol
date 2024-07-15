@@ -1,6 +1,9 @@
 #include "fractol.h"
 
 // z = z^2 + c
+// julia is a 
+// z = pixel_point + constan
+// <real> <i>
 
 void	my_pixel_put(int x, int y, t_img *img, int color)
 {
@@ -11,6 +14,20 @@ void	my_pixel_put(int x, int y, t_img *img, int color)
 
 }
 
+static	void	mandel_or_julia(t_complex *z, t_complex *c, t_fractal fractal)
+{
+	if (!ft_strncmp(fractal->name, "Julia", 5))
+	{
+		c->x = fractal->julia_x;
+		c->y = fractal->julia_y;
+	}
+	else
+	{
+		c->x = z->x;
+		c->y = z->y;
+	}
+}
+
 void	handle_pixel(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
@@ -18,13 +35,14 @@ void	handle_pixel(int x, int y, t_fractal *fractal)
 	int		i;
 
 	// iteration
-	z.x = 0.0;
-	z.y = 0.0;
+	//z.x = 0.0;
+	//z.y = 0.0;
 
 	// pixel coordinate x && y scaled to fit mandel needs
-	c.x = map(x, -2, +2, 0, WIDTH);
-	c.y = map(y, +2, -2, 0, HEITH);
+	z.x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom) + fractal->shift_x;
+	z.y = (map(y, +2, -2, 0, HEITH) * fractal->zoom) + fractal->shift_y;
 
+	mandel_or_julia(&z, &c, fractal);
 	//how many times to iterate z^2 + c
 	while (i < fractal->iterations)
 	{
