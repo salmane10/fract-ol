@@ -6,7 +6,7 @@
 /*   By: slouham <slouham@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:45:01 by slouham           #+#    #+#             */
-/*   Updated: 2024/07/17 21:33:56 by slouham          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:52:58 by slouham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	key_handler(int	keysym, t_fractal *fractal)
 		fractal->shift_y += (0.5 * fractal->zoom);
 	else if (keysym == XK_Down)
 		fractal->shift_y -= (0.5 * fractal->zoom);
-	else if (keysym == XK_plus)
+	else if (keysym == 65451)
 		fractal->iterations += 10;
-	else if (keysym == XK_minus)
+	else if (keysym == 65453)
 		fractal->iterations -= 10;
 	fractal_render(fractal); // refresh image  
 	return (0);
