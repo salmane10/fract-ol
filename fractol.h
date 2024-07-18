@@ -6,7 +6,7 @@
 /*   By: slouham <slouham@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:44:56 by slouham           #+#    #+#             */
-/*   Updated: 2024/07/18 14:55:28 by slouham          ###   ########.fr       */
+/*   Updated: 2024/07/18 17:57:12 by slouham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,6 @@ int			close_handler(t_fractal *fractal);
 //utils
 int			ft_strncmp(char *s1, char *s2, int n);
 double		atodbl(char *s);
+int			is_valid(char *str);
 
 #endif

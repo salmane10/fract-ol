@@ -6,11 +6,42 @@
 /*   By: slouham <slouham@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:44:18 by slouham           #+#    #+#             */
-/*   Updated: 2024/07/18 15:24:26 by slouham          ###   ########.fr       */
+/*   Updated: 2024/07/18 17:55:15 by slouham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+int	is_valid(char *str)
+{
+	int	i;
+	int	f;
+
+	i = 0;
+	f = 0;
+	if (str[0] == '-' || str[0] == '+')
+		i++;
+	if (str[i] == '\0')
+		return (0);
+	while (str[i])
+	{
+		if (str[i] == '.')
+		{
+			if (f)
+				return (0);
+			f = 1;
+		}
+		else if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	ft_strncmp(char *s1, char *s2, int n)
 {
