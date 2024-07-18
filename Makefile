@@ -1,6 +1,6 @@
 NAME	= fractol
 CC	= cc
-CFLAGS	= -Wall -Wextra -Werror -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror
 SRC	= main.c render.c init.c events.c math.c utils.c
 OBJ	= $(SRC:.c=.o)
 
