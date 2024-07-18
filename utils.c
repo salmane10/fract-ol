@@ -6,7 +6,7 @@
 /*   By: slouham <slouham@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:44:18 by slouham           #+#    #+#             */
-/*   Updated: 2024/07/18 14:50:48 by slouham          ###   ########.fr       */
+/*   Updated: 2024/07/18 15:24:26 by slouham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,16 @@ double	atodbl(char *s)
 	while (*s == 32 || (*s >= 9 && *s <= 13))
 		s++;
 	while (*s == '+' || *s == '-')
-		if (*s == '-')
+		if (*s++ == '-')
 			sign *= -1;
 	while (*s && *s != '.')
-		intpart = (intpart * 10) + (s++ - '0');
+		intpart = (intpart * 10) + (*s++ - '0');
 	if (*s == '.')
 		s++;
 	while (*s)
 	{
 		pow /= 10;
-		fractional = fractional + (s++ - '0') * pow;
+		fractional = fractional + (*s++ - '0') * pow;
 	}
 	return ((intpart + fractional) * sign);
 }
